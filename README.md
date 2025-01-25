@@ -107,7 +107,7 @@ While the current system works effectively for the scope of this challenge, ther
 4. **User Feedback Loop**:
    - Incorporating user feedback into the system could improve response accuracy over time, allowing the chatbot to learn from interactions.
 
-## Conclusion
+## What we learn
 
 This project demonstrates how a chatbot can be implemented using a custom scraping tool, embeddings, and a Retrieval-Augmented Generation pipeline. It showcases efficient techniques for semantic search and response generation, and it offers a solid foundation for future improvements such as the integration of generative APIs and handling larger datasets.
 
