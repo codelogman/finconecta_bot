@@ -115,7 +115,7 @@ While the current system works effectively for the scope of this challenge, ther
 
 ## What we learn
 
-This project demonstrates how a chatbot can be implemented using a custom scraping tool, embeddings, and a Retrieval-Augmented Generation pipeline. It showcases efficient techniques for semantic search and response generation, and it offers a solid foundation for future improvements such as the integration of generative APIs and handling larger datasets.
+This project demonstrates how a chatbot can be implemented using a custom scraping tool, embeddings, and a Retrieval-Augmented Generation pipeline. It improve efficient techniques for semantic search and response generation, and it offers a basic foundation for future improvements such as the integration of more powerful generative APIs and handling larger datasets.
 
 ## Installation
 
