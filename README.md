@@ -66,7 +66,7 @@ The chatbot also includes advanced features like filtering by price threshold (e
 3. **Extracting Product Details**: The `scrape_product_details` function visits each product link and extracts information such as name, price, description, and category.
 4. **Error Handling**: Errors during scraping (e.g., missing elements) are logged and do not interrupt the process, ensuring that the scraper continues to run even when individual product pages fail.
 
-### Semantic Search (`semantic_search.py`)
+### Semantic Search (`semantic_search_hf.py`)
 
 1. **FAISS Indexing**: A FAISS index is created using the embeddings generated from the product data. This allows for quick similarity searches to match user queries with the most relevant products.
 2. **Embedding Generation**: Product-related text (e.g., name, description, category) is converted into embeddings using the Hugging Face `sentence-transformers/all-MiniLM-L6-v2` model.
