@@ -33,6 +33,9 @@ The chatbot responds to natural language queries about products by retrieving re
 ## How the Scraper and Pipeline Integrate
 
 ### Scraper
+
+![Screenshot of the Bot Interface](./images/scrapper2.png "Scrapper books")
+
 The scraper is implemented using **Selenium**, allowing for the automated extraction of product information from the website [http://books.toscrape.com/](http://books.toscrape.com/). The main scraping functions are:
 
 1. **`scrape_all_product_links`**: This function extracts links to all product pages across multiple catalog pages.
@@ -41,6 +44,7 @@ The scraper is implemented using **Selenium**, allowing for the automated extrac
 
 The scraper handles errors effectively by logging any failures (e.g., missing data or network issues) to a log file (`scraper_errors.log`), ensuring robustness during scraping.
 
+![Screenshot of the Bot Interface](./images/embedding1.png "embedding process")
 ### Embeddings & FAISS Indexing
 Once the CSV file is generated, the data is processed to extract embeddings using Hugging Face models:
 
@@ -48,6 +52,7 @@ Once the CSV file is generated, the data is processed to extract embeddings usin
 2. **FAISS Indexing**: Embeddings are indexed using **FAISS** (Facebook AI Similarity Search), allowing for fast similarity search during the query phase.
 3. **Metadata**: Product details (e.g., name, price, description) are stored in metadata associated with each embedding. This metadata is used later to retrieve the full details of matching products.
 
+![Screenshot of the Bot Interface](./images/generative2.png "QA Bot generative")
 ### RAG Pipeline
 The chatbot's core functionality is driven by a **Retrieval-Augmented Generation (RAG)** pipeline:
 
@@ -55,6 +60,7 @@ The chatbot's core functionality is driven by a **Retrieval-Augmented Generation
 2. **Text Generation**: The relevant products are returned, and the system uses a **GPT-2** model to generate a response, integrating product information with the user's query to provide an informative answer.
 3. **Gradio Interface**: The chatbot interface is built using **Gradio**, allowing users to input questions and receive responses in a simple web interface.
 
+![Screenshot of the Bot Interface](./images/generative1.png "QA Bot generative")
 The chatbot also includes advanced features like filtering by price threshold (e.g., "under $50") and relevance checks to ensure queries are related to products.
 
 ## Detailed Explanation of the Code
