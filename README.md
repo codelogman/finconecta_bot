@@ -18,20 +18,6 @@ This project is a **QA Generative Bot** built using Gradio for the interface, Hu
 - **Semantic Search**: Uses FAISS and Hugging Face to retrieve the most relevant product information.
 - **Gradio Interface**: Easy-to-use web interface for interacting with the bot.
 
-## Requirements
-
-- Python 3.x
-- Gradio
-- Hugging Face
-- FAISS
-
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/codelogman/finconecta_bot.git
-
-
 This repository contains the implementation of a chatbot designed to meet the objectives of the AI Engineer challenge. The system uses a custom web scraping tool to gather product data, processes this data using embeddings, and integrates it into a Retrieval-Augmented Generation (RAG) pipeline to provide accurate answers to user queries.
 
 ## Objectives of the Challenge
@@ -88,6 +74,20 @@ The chatbot also includes advanced features like filtering by price threshold (e
 4. **Custom Document Store**: A custom document store is used to manage the metadata associated with the FAISS index, ensuring that relevant product information is linked to the search results.
 5. **Gradio Interface**: The `gr.Interface` is used to create a simple web interface where users can input questions and get answers based on the product data.
 
+
+## Bottleneck in the Semantic Search Process
+
+In this project, one of the main bottlenecks observed is the **embedding generation and FAISS indexing**. Specifically:
+
+- **Embedding Generation**: The process of generating sentence embeddings for each product, especially for descriptions, can be slow when handling large datasets. This is due to the reliance on pre-trained transformer models, which require significant computational resources and time to process text.
+  
+- **FAISS Indexing**: The creation of the FAISS index, which involves adding embeddings to the index, can be resource-intensive. In the current approach, the index is rebuilt from scratch every time the script is executed, which ensures that the latest data is always used.
+
+### Approach for the Challenge:
+Given the relatively small dataset in this project (around 20 products), the current approach is efficient and suitable. Rebuilding the FAISS index from scratch ensures that we are always working with up-to-date data without introducing additional complexity.
+
+For larger datasets or more frequent updates, optimizations such as parallel processing, model optimization, or incremental indexing could be explored in the future to improve efficiency and scalability.
+
 ## Potential Improvements and Alternatives
 
 While the current system works effectively for the scope of this challenge, there are several areas where the solution could be improved:
@@ -117,4 +117,4 @@ To run the project locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/ai-engineer-challenge.git
+   git clone https://github.com/codelogman/finconecta_bot.git
