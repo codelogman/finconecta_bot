@@ -1,11 +1,13 @@
 # AI Engineer Challenge - Chatbot with RAG Pipeline
 
-[![Build Status](https://img.shields.io/github/workflow/status/codelogman/finconecta_bot/CI)](https://github.com/codelogman/finconecta_bot/actions)
-[![Python Version](https://img.shields.io/pypi/pyversions/python.svg)](https://www.python.org/)
 [![Gradio](https://img.shields.io/badge/Gradio-%E2%9C%94-brightgreen.svg)](https://gradio.app/)
 [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-%E2%9C%94-brightgreen.svg)](https://huggingface.co/)
-[![License](https://img.shields.io/github/license/codelogman/finconecta_bot.svg)](https://opensource.org/licenses/MIT)
-[![Stars](https://img.shields.io/github/stars/codelogman/finconecta_bot.svg)](https://github.com/codelogman/finconecta_bot/stargazers)
+[![Version](https://img.shields.io/badge/version-1.0.0-brightgreen)](https://github.com/codelogman/experimental_pilot)
+[![Python](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)
+[![Docker](https://img.shields.io/badge/docker-ready-blue)](https://www.docker.com/)
+[![Kubernetes](https://img.shields.io/badge/Kubernetes-Deploy%20Ready-blue?logo=kubernetes&logoColor=white)](https://kubernetes.io/)
+[![Jenkins](https://img.shields.io/badge/jenkins-automated-orange)](https://www.jenkins.io/)
+[![Status](https://img.shields.io/badge/status-Stable-success)](#)
 
 ## Project Description
 
