@@ -29,7 +29,7 @@ This project is a **QA Generative Bot** built using Gradio for the interface, Hu
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/repo.git
+   git clone https://github.com/codelogman/finconecta_bot.git
 
 
 This repository contains the implementation of a chatbot designed to meet the objectives of the AI Engineer challenge. The system uses a custom web scraping tool to gather product data, processes this data using embeddings, and integrates it into a Retrieval-Augmented Generation (RAG) pipeline to provide accurate answers to user queries.
