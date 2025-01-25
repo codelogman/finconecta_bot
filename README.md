@@ -1,11 +1,11 @@
 # AI Engineer Challenge - Chatbot with RAG Pipeline
 
-[![Build Status](https://img.shields.io/github/workflow/status/username/repo/CI)](https://github.com/username/repo/actions)
+[![Build Status](https://img.shields.io/github/workflow/status/codelogman/finconecta_bot/CI)](https://github.com/codelogman/finconecta_bot/actions)
 [![Python Version](https://img.shields.io/pypi/pyversions/python.svg)](https://www.python.org/)
 [![Gradio](https://img.shields.io/badge/Gradio-%E2%9C%94-brightgreen.svg)](https://gradio.app/)
 [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-%E2%9C%94-brightgreen.svg)](https://huggingface.co/)
-[![License](https://img.shields.io/github/license/username/repo.svg)](https://opensource.org/licenses/MIT)
-[![Stars](https://img.shields.io/github/stars/username/repo.svg)](https://github.com/username/repo/stargazers)
+[![License](https://img.shields.io/github/license/codelogman/finconecta_bot.svg)](https://opensource.org/licenses/MIT)
+[![Stars](https://img.shields.io/github/stars/codelogman/finconecta_bot.svg)](https://github.com/codelogman/finconecta_bot/stargazers)
 
 ## Project Description
 
