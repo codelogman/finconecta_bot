@@ -1,5 +1,35 @@
 # AI Engineer Challenge - Chatbot with RAG Pipeline
 
+[![Build Status](https://img.shields.io/github/workflow/status/username/repo/CI)](https://github.com/username/repo/actions)
+[![Python Version](https://img.shields.io/pypi/pyversions/python.svg)](https://www.python.org/)
+[![Gradio](https://img.shields.io/badge/Gradio-%E2%9C%94-brightgreen.svg)](https://gradio.app/)
+[![Hugging Face](https://img.shields.io/badge/Hugging%20Face-%E2%9C%94-brightgreen.svg)](https://huggingface.co/)
+[![License](https://img.shields.io/github/license/username/repo.svg)](https://opensource.org/licenses/MIT)
+[![Stars](https://img.shields.io/github/stars/username/repo.svg)](https://github.com/username/repo/stargazers)
+
+## Project Description
+
+This project is a **QA Generative Bot** built using Gradio for the interface, Hugging Face for model usage, and FAISS for efficient similarity search. It scrapes product information from [Books To Scrape](http://books.toscrape.com/) and uses a semantic search for user queries.
+
+## Features
+- **Web Scraping**: Scrapes product data from Books To Scrape.
+- **Semantic Search**: Uses FAISS and Hugging Face to retrieve the most relevant product information.
+- **Gradio Interface**: Easy-to-use web interface for interacting with the bot.
+
+## Requirements
+
+- Python 3.x
+- Gradio
+- Hugging Face
+- FAISS
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/username/repo.git
+
+
 This repository contains the implementation of a chatbot designed to meet the objectives of the AI Engineer challenge. The system uses a custom web scraping tool to gather product data, processes this data using embeddings, and integrates it into a Retrieval-Augmented Generation (RAG) pipeline to provide accurate answers to user queries.
 
 ## Objectives of the Challenge
@@ -14,37 +44,47 @@ The chatbot responds to natural language queries about products by retrieving re
 
 ## How the Scraper and Pipeline Integrate
 
-### Scraper:
-The scraper is implemented using a Python script that collects product information (name, price, description, category, and URL) from the website [http://books.toscrape.com/](http://books.toscrape.com/). The scraped data is then stored in a CSV file, which is used as input for the pipeline.
+### Scraper
+The scraper is implemented using **Selenium**, allowing for the automated extraction of product information from the website [http://books.toscrape.com/](http://books.toscrape.com/). The main scraping functions are:
 
-### Embeddings:
-Once the CSV file is generated, the data is processed to extract embeddings using Hugging Face models. The embeddings are then indexed with FAISS, allowing for fast retrieval of relevant information when a user submits a query.
+1. **`scrape_all_product_links`**: This function extracts links to all product pages across multiple catalog pages.
+2. **`scrape_product_details`**: This function scrapes individual product details (name, price, description, category, stock status) from each product page.
+3. **`save_to_csv`**: After scraping the product details, the data is saved into a CSV file (`products.csv`), which is used for downstream processing in the pipeline.
 
-### RAG Pipeline:
-The Retrieval-Augmented Generation (RAG) pipeline combines the retrieved information with generative models to formulate comprehensive answers. The pipeline works by:
-1. Searching the FAISS index to find relevant product data based on the query.
-2. Using Hugging Face models to generate a response that synthesizes the retrieved data.
+The scraper handles errors effectively by logging any failures (e.g., missing data or network issues) to a log file (`scraper_errors.log`), ensuring robustness during scraping.
 
-### Integration:
-The scraper, embeddings, and RAG pipeline are integrated to create a seamless flow. The scraper collects data, the embeddings are generated and indexed, and the chatbot uses the indexed data to respond to user queries effectively.
+### Embeddings & FAISS Indexing
+Once the CSV file is generated, the data is processed to extract embeddings using Hugging Face models:
+
+1. **`generate_embedding`**: This function converts product-related text (name, description, category, and price) into vector embeddings using a pre-trained model (`sentence-transformers/all-MiniLM-L6-v2`).
+2. **FAISS Indexing**: Embeddings are indexed using **FAISS** (Facebook AI Similarity Search), allowing for fast similarity search during the query phase.
+3. **Metadata**: Product details (e.g., name, price, description) are stored in metadata associated with each embedding. This metadata is used later to retrieve the full details of matching products.
+
+### RAG Pipeline
+The chatbot's core functionality is driven by a **Retrieval-Augmented Generation (RAG)** pipeline:
+
+1. **Similarity Search**: When a user submits a query, the system performs a similarity search on the FAISS index to find the most relevant product details based on the query.
+2. **Text Generation**: The relevant products are returned, and the system uses a **GPT-2** model to generate a response, integrating product information with the user's query to provide an informative answer.
+3. **Gradio Interface**: The chatbot interface is built using **Gradio**, allowing users to input questions and receive responses in a simple web interface.
+
+The chatbot also includes advanced features like filtering by price threshold (e.g., "under $50") and relevance checks to ensure queries are related to products.
 
 ## Detailed Explanation of the Code
 
-1. **Scraper**:
-   - The scraper script fetches data from the website and saves it as a CSV file.
-   - Error handling is implemented to ensure the scraper runs smoothly even if some products are unavailable or the website structure changes.
+### Scraper (`scraper.py`)
 
-2. **Embeddings & FAISS Indexing**:
-   - Data from the CSV file is processed using Hugging Face models to generate embeddings.
-   - These embeddings are indexed using FAISS, ensuring efficient and fast retrieval.
+1. **Initialization**: The scraper initializes a headless **Selenium WebDriver** to interact with the website. This enables data extraction without the need for a GUI.
+2. **Scraping Links**: The `scrape_all_product_links` function navigates through multiple pages of the catalog and retrieves links to product pages.
+3. **Extracting Product Details**: The `scrape_product_details` function visits each product link and extracts information such as name, price, description, and category.
+4. **Error Handling**: Errors during scraping (e.g., missing elements) are logged and do not interrupt the process, ensuring that the scraper continues to run even when individual product pages fail.
 
-3. **Chatbot (Gradio Interface)**:
-   - A user-friendly interface is created using Gradio, where users can input natural language queries.
-   - The chatbot processes these queries, retrieves relevant data, and generates a response.
+### Semantic Search (`semantic_search.py`)
 
-4. **Error Handling & Efficiency**:
-   - Robust error handling ensures that failures in scraping or model inference do not affect the user experience.
-   - The pipeline is designed to handle small datasets effectively, allowing for faster responses and less overhead.
+1. **FAISS Indexing**: A FAISS index is created using the embeddings generated from the product data. This allows for quick similarity searches to match user queries with the most relevant products.
+2. **Embedding Generation**: Product-related text (e.g., name, description, category) is converted into embeddings using the Hugging Face `sentence-transformers/all-MiniLM-L6-v2` model.
+3. **Text Generation**: Using a **GPT-2** model, the chatbot generates human-like answers by combining the retrieved product data with the user's query.
+4. **Custom Document Store**: A custom document store is used to manage the metadata associated with the FAISS index, ensuring that relevant product information is linked to the search results.
+5. **Gradio Interface**: The `gr.Interface` is used to create a simple web interface where users can input questions and get answers based on the product data.
 
 ## Potential Improvements and Alternatives
 
