@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: finconecta-bot-deployment
+  labels:
+    app: finconecta_bot
+spec:
+  replicas: 3  
+  selector:
+    matchLabels:
+      app: finconecta_bot
+  template:
+    metadata:
+      labels:
+        app: finconecta_bot
+    spec:
+      containers:
+      - name: finconecta_bot
+        image: codelogman/finconecta_bot:latest  
+        ports:
+        - containerPort: 8080  
+        env:
+        - name: ENVIRONMENT
+          value: "production"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: finconecta-bot-service
+spec:
+  selector:
+    app: finconecta_bot
+  ports:
+    - protocol: TCP
+      port: 8080  
+      targetPort: 8080  
+  type: LoadBalancer  
+
