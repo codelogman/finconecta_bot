@@ -84,7 +84,7 @@ In this project, one of the main bottlenecks observed is the **embedding generat
 - **FAISS Indexing**: The creation of the FAISS index, which involves adding embeddings to the index, can be resource-intensive. In the current approach, the index is rebuilt from scratch every time the script is executed, which ensures that the latest data is always used.
 
 ### Approach for the Challenge:
-Given the relatively small dataset in this project (around 20 products), the current approach is efficient and suitable. Rebuilding the FAISS index from scratch ensures that we are always working with up-to-date data without introducing additional complexity.
+Given the relatively small dataset in this project (around 1000 products), the current approach is efficient and suitable. Rebuilding the FAISS index from scratch ensures that we are always working with up-to-date data without introducing additional complexity.
 
 For larger datasets or more frequent updates, optimizations such as parallel processing, model optimization, or incremental indexing could be explored in the future to improve efficiency and scalability.
 
