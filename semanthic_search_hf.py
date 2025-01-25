@@ -10,7 +10,7 @@ import re
 from huggingface_hub import login
 
 # Authenticate with Hugging Face to access the models
-login(token="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")
+login(token="hf_wzHZbrdyvJvBbnuNXHCDrcFmOkwW5FhXrB")
 
 # Load the CSV file containing product data
 df = pd.read_csv('products.csv')
