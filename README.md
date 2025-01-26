@@ -42,7 +42,7 @@ The scraper is implemented using **Selenium**, allowing for the automated extrac
 2. **`scrape_product_details`**: This function scrapes individual product details (name, price, description, category, stock status) from each product page.
 3. **`save_to_csv`**: After scraping the product details, the data is saved into a CSV file (`products.csv`), which is used for downstream processing in the pipeline.
 
-The scraper handles errors effectively by logging any failures (e.g., missing data or network issues) to a log file (`scraper_errors.log`), ensuring robustness during scraping.
+The scraper handles errors effectively by logging any failures (e.g., missing data or network issues) to a log file (`scraper.log`), ensuring robustness during scraping.
 
 ![Screenshot of the Bot Interface](./images/embedding1.png "embedding process")
 ### Embeddings & FAISS Indexing
