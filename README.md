@@ -113,6 +113,32 @@ While the current system works effectively for the scope of this challenge, ther
 4. **User Feedback Loop**:
    - Incorporating user feedback into the system could improve response accuracy over time, allowing the chatbot to learn from interactions.
 
+
+## Automation with Cron
+
+To ensure the scraping process runs regularly and keeps the product data up to date, we implemented a Bash script that integrates with **cron**. This automation provides the following benefits:
+
+- **Scheduled Execution**: The scraper runs daily at 8:00 AM without requiring manual intervention.
+- **Immediate Results**: The script allows manual execution for immediate updates.
+- **Logging**: The scraper process logs its output for debugging and monitoring (`scraper.log`).
+- **Error Handling**: The script verifies the existence of the scraper and checks if the output CSV file is successfully generated.
+- **Deployment Ready**: The setup is compatible with deployment environments like **GCP**, **AWS**, or on-premise servers.
+
+### How the Automation Works
+
+1. **Validation**: The script checks whether the `scrapper.py` file exists in the specified project directory.
+2. **Execution**: It manually runs the scraper to generate the product data CSV immediately.
+3. **Verification**: After running the scraper, it ensures the output CSV file is created successfully.
+4. **Scheduling with Cron**: If not already configured, the script adds a cron job to execute the scraper daily at 8:00 AM.
+
+### How to Use
+
+1. Save the automation script in the project directory as `run_scraper.sh`.
+2. Make the script executable:
+   ```bash
+   chmod +x run_scraper.sh
+
+
 ## What we learn
 
 This project demonstrates how a chatbot can be implemented using a custom scraping tool, embeddings, and a Retrieval-Augmented Generation pipeline. It improve efficient techniques for semantic search and response generation, and it offers a basic foundation for future improvements such as the integration of more powerful generative APIs and handling larger datasets.
