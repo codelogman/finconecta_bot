@@ -1,5 +1,5 @@
 class { 'kubernetes':
-  kubeconfig => '/path/to/kubeconfig',  
+  kubeconfig => '/kubeconfig',  
 }
 
 kubernetes::resource::deployment { 'finconecta_bot':
