@@ -1,0 +1,46 @@
+2025-01-25 07:28:23,089 - ERROR - Error extracting details from https://books.toscrape.com/catalogue/the-bridge-to-consciousness-im-writing-the-bridge-between-science-and-our-old-and-new-beliefs_840/index.html: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#product_description ~ p"}
+  (Session info: chrome=132.0.6834.110); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x556915c39dca <unknown>
+#1 0x5569157303f0 <unknown>
+#2 0x55691578010c <unknown>
+#3 0x556915780331 <unknown>
+#4 0x5569157c6154 <unknown>
+#5 0x5569157a4abd <unknown>
+#6 0x5569157c34b3 <unknown>
+#7 0x5569157a4833 <unknown>
+#8 0x5569157715a0 <unknown>
+#9 0x556915772ece <unknown>
+#10 0x556915c03bdb <unknown>
+#11 0x556915c07b67 <unknown>
+#12 0x556915bef3bc <unknown>
+#13 0x556915c08727 <unknown>
+#14 0x556915bd374f <unknown>
+#15 0x556915c28938 <unknown>
+#16 0x556915c28b00 <unknown>
+#17 0x556915c38c46 <unknown>
+#18 0x7f58d8aaeb43 <unknown>
+
+2025-01-25 10:04:52,085 - ERROR - Error extracting details from https://books.toscrape.com/catalogue/alice-in-wonderland-alices-adventures-in-wonderland-1_5/index.html: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#product_description ~ p"}
+  (Session info: chrome=132.0.6834.110); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55eb172bcdca <unknown>
+#1 0x55eb16db33f0 <unknown>
+#2 0x55eb16e0310c <unknown>
+#3 0x55eb16e03331 <unknown>
+#4 0x55eb16e49154 <unknown>
+#5 0x55eb16e27abd <unknown>
+#6 0x55eb16e464b3 <unknown>
+#7 0x55eb16e27833 <unknown>
+#8 0x55eb16df45a0 <unknown>
+#9 0x55eb16df5ece <unknown>
+#10 0x55eb17286bdb <unknown>
+#11 0x55eb1728ab67 <unknown>
+#12 0x55eb172723bc <unknown>
+#13 0x55eb1728b727 <unknown>
+#14 0x55eb1725674f <unknown>
+#15 0x55eb172ab938 <unknown>
+#16 0x55eb172abb00 <unknown>
+#17 0x55eb172bbc46 <unknown>
+#18 0x7fa224f79b43 <unknown>
+
